@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="./styles/all.css">
+    <link rel="stylesheet" href="./styles/normalize.css">
+    <link rel="stylesheet" href="./styles/styles.css">
+  
+    <script defer src= "./node_modules/jquery/dist/jquery.min.js"></script>
+    <script defer type="module" src="./Js/script.js"></script>
+    <title>Weather Api</title>
+</head>
+<body>
+    <header class="header pg-section">
+        <div class="container header-flex">
+            <a href="#">
+                <div class="header__brand">
+                    <figure class="brand__logo-img">
+                        <img src="./images/logo.png" alt="">
+                    </figure>
+                    <div class="brand__title">
+                        <h2 class="bold fs-large">Weather</h2>
+                        <p class="fw-light fs-small">tagline goes here</p>
+                    </div>
+                </div>
+            </a>
+            <button class="header__hamburger-menu " data-pressed ="false">
+                <span class="hamburger-menu__before" ></span>
+                <span class="hamburger-menu__pivot" ></span>
+                <span class="hamburger-menu__after" ></span>
+              </button>
+            <nav class="header__nav">
+                <ul class="nav__links">
+                    <a href="">
+                        <li class="links__link">Home</li>
+                    </a><a href="">
+                        <li class="links__link">News</li>
+                    </a><a href="">
+                        <li class="links__link">Live cameras</li>
+                    </a><a href="">
+                        <li class="links__link">Photos</li>
+                    </a><a href="">
+                        <li class="links__link">Contact</li>
+                    </a>
+                </ul>
+            </nav>
+        
+        </div>
+    </header>
+    <main class="main">
+        <section class="location-input pg-section">
+            <div class="container">
+                <form class="location-input__find" action="#">
+                    <input type="text" placeholder="Find Your Location..." class="z-1 position-relative" name="location">
+                    <select name="selectedDays" class="w45 z-0 position-absolute top-0 appearance-none select-group">
+                        <option value="1" selected>No of days def 1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        </select>
+                    <button type="submit" class="z-1 find-button">Find</button>
+                </form>
+            </div>
+
+        </section>
+        <section class="weather-cards pg-section">
+        <div class="container">
+
+        </div>
+        </section>
+     
+
+    </main>
+    <footer class="footer pg-section">
+        <div class="container">
+        <section class="footer__subscribe-socials  ">
+                <form class="subscribe-socials__find" action="#">
+                    <input type="text" placeholder="Find Your Location..."><button type="submit" class="">Find</button>
+                </form>
+                <ul class="subscribe-socials__social-links">
+                    <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+					<li><a href="#"><i class="fab fa-twitter"></i></a></li>
+					<li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
+					<li><a href="#"><i class="fab fa-pinterest"></i></a></li>
+                </ul>
+        </section>
+            <p class="colophon">Copyright 2014 Company name. Designed by Themezy. All rights reserved</p>
+         
+        </div>
+    </footer>
+    
+</body>
+</html>
