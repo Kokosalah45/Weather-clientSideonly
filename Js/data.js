@@ -58,7 +58,7 @@ const getData = async (requestURL)=>{
 };
 
 const appendCards = async (location,days,weatherCardsContainer)=> {
-    const res = await getData(`http://api.weatherapi.com/v1/forecast.json?key=defcc7e309a04cd5b8913744221201&q=${location}&days=${days}&aqi=no&alerts=no`);
+    const res = await getData(`https://api.weatherapi.com/v1/forecast.json?key=defcc7e309a04cd5b8913744221201&q=${location}&days=${days}&aqi=no&alerts=no`);
     if(!res.hasOwnProperty('error')){
         weatherCardsContainer.innerHTML = "";
         appendCurrentCard(res);
