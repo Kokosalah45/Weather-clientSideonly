@@ -15,10 +15,10 @@ import {appendCards} from './data.js';
         const isPressed = e.target.dataset.pressed;
         console.log(e.target);
          if(isPressed === "false"){
-        $(e.target.nextElementSibling).addClass('header__active'); 
+        e.target.nextElementSibling.classList.add('header__active'); 
         e.target.dataset.pressed = true; 
        }else{
-        $(e.target.nextElementSibling).removeClass('header__active'); 
+        e.target.nextElementSibling.classList.remove('header__active'); 
         e.target.dataset.pressed = false;
        }
     });
