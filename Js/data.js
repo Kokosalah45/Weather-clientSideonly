@@ -1,6 +1,6 @@
 
 import {MAINWEATHERCARD as mwc,SECWEATHERCARD as swc} from './weathercard.js';
-const appendCurrentCard = (res) =>{
+const appendCurrentCard = (res,fragment) =>{
     const {
         location : {
             name,
@@ -21,14 +21,12 @@ const appendCurrentCard = (res) =>{
 
     } =  res;
     const date = localtime.split(' ')[0];
-    new mwc(temp_c,name,wind_kph,wind_dir,humidity,icon,text,date).setUpMainCard();
-    if (res.location === 'undefined'){
-        return -1;
-    }
+    new mwc(temp_c,name,wind_kph,wind_dir,humidity,icon,text,date).setUpMainCard(fragment);
+  
 
 };
 
-const appendChildCards = (forcastDays) =>{
+const appendChildCards = (forcastDays,fragment) =>{
    
     forcastDays.forEach(day =>{
         const {
@@ -44,7 +42,7 @@ const appendChildCards = (forcastDays) =>{
           
         } = day;
         const dateSplit = date.split(' ')[0];
-        new swc(maxtemp_c,mintemp_c,icon,text,dateSplit).setUpSecCard();
+        new swc(maxtemp_c,mintemp_c,icon,text,dateSplit).setUpSecCard(fragment);
     });
    
     
@@ -58,10 +56,11 @@ const getData = async (requestURL)=>{
 };
 
 const appendCards = async (location,days,weatherCardsContainer)=> {
+    const fragment = new DocumentFragment();
     const res = await getData(`https://api.weatherapi.com/v1/forecast.json?key=defcc7e309a04cd5b8913744221201&q=${location}&days=${days}&aqi=no&alerts=no`);
     if(!res.hasOwnProperty('error')){
         weatherCardsContainer.innerHTML = "";
-        appendCurrentCard(res);
+        appendCurrentCard(res,fragment);
         let {
             forecast : {
                 forecastday : forcastDays
@@ -69,7 +68,8 @@ const appendCards = async (location,days,weatherCardsContainer)=> {
         } = res;
         console.log(forcastDays);
         forcastDays.shift();
-        appendChildCards(forcastDays);
+        appendChildCards(forcastDays,fragment);
+        weatherCardsContainer.appendChild(fragment);
        
     }
  

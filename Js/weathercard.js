@@ -4,7 +4,6 @@ class WEATHERCARD {
         this.tempImgSrc = tempImgSrc;
         this.date = new Date(date).toLocaleDateString('default',{weekday: 'long', month: 'long', day: 'numeric' }).split(" ");
         this.condition = condition;
-        this.cardsContainer = document.querySelector('.weather-cards .container');
         this.card = document.createElement('div');
         this.card.classList.add('weather-cards__card');
     }
@@ -25,7 +24,7 @@ class MAINWEATHERCARD extends WEATHERCARD {
    
      
     
-     setUpMainCard(){
+     setUpMainCard(fragment){
         this.card.innerHTML = `
       
         <div class="card__date card__date--current">
@@ -60,7 +59,7 @@ class MAINWEATHERCARD extends WEATHERCARD {
         </div>
    
         `;
-        this.cardsContainer.appendChild(this.card);
+        fragment.appendChild(this.card);
      }
 }
 class SECWEATHERCARD extends WEATHERCARD {
@@ -73,7 +72,7 @@ class SECWEATHERCARD extends WEATHERCARD {
 
  
 
-    setUpSecCard(){
+    setUpSecCard(fragment){
         this.card.innerHTML = `
    
         <div class="card__date">
@@ -91,7 +90,7 @@ class SECWEATHERCARD extends WEATHERCARD {
         </div>
   
         `;
-        this.cardsContainer.appendChild(this.card);
+        fragment.appendChild(this.card);
      }
      
 
